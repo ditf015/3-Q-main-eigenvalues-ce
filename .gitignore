@@ -1,0 +1,13 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Temporary notebooks produced by scripts/run_parameters.py.
+tmp_run_*.ipynb
+executed_notebooks/
+
+# Keep committed sample figures and matrices in this repository.
+# New runs write to:
+#   figures/G_r*_k*_h*/
+#   matrices/G_r*_k*_h*/
