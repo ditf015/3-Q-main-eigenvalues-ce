@@ -130,18 +130,3 @@ The default structural drawing fixes the ladder core and draws attached rooted
 trees outward using a tidy layered layout.  The notebook prints a proper
 straight-edge crossing count for the structural full graph and skeleton.
 
-## Does This Run On GitHub?
-
-GitHub will render the notebook and display committed files, but a normal
-GitHub repository page does not execute SageMath notebooks automatically.  To
-run the code, clone the repository on a machine with SageMath installed and run
-the notebook or `scripts/run_parameters.py`.
-
-The generated files always go under:
-
-```text
-figures/G_r{r}_k{k}_h{h}/
-matrices/G_r{r}_k{k}_h{h}/
-```
-
-Those folders can then be committed if you want to publish the new outputs.
