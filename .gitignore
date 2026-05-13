@@ -7,7 +7,12 @@ __pycache__/
 tmp_run_*.ipynb
 executed_notebooks/
 
-# Keep committed sample figures and matrices in this repository.
-# New runs write to:
-#   figures/G_r*_k*_h*/
-#   matrices/G_r*_k*_h*/
+# Legacy one-off output folders from earlier notebook versions.
+G_r*_visualization/
+G_r*_matrices/
+
+# New runs write here.  The repository keeps a few curated sample outputs
+# already tracked in git; fresh parameter runs are ignored by default so large
+# local experiments do not get committed accidentally.
+figures/G_r*_k*_h*/
+matrices/G_r*_k*_h*/

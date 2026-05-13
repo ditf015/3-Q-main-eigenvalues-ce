@@ -120,13 +120,43 @@ tools that need an explicit file-backed representation of the matrix data.
 
 Each `figures/G_r*_k*_h*/` folder contains:
 
+- `*_compressed_schematic.png/pdf`: paper-style compressed drawing of the
+  current graph. This is the default large-graph preview: repeated pendant
+  stars and recursive copies are represented by one drawn module plus
+  multiplicity labels.
 - `*_full_structural.png/pdf`: exact full graph in the structure-aware layout.
+  This is only generated when the graph is below the configured exact-layout
+  threshold.
 - `*_skeleton_structural.png/pdf`: construction skeleton.
 - `*_family_h_variable.png/pdf`: schematic for the infinite family with fixed
   `r,k` and varying `h`.
 - `*.dot`, `*.gexf`, and `*_sfdp.svg`: Graphviz and Gephi exchange files.
 
-The default structural drawing fixes the ladder core and draws attached rooted
-trees outward using a tidy layered layout.  The notebook prints a proper
-straight-edge crossing count for the structural full graph and skeleton.
+The default drawing for large graphs is the compressed schematic.  It uses the
+same visual grammar as graph-theory papers: a visible core, representative
+rooted branches, ellipses or boxed recursive copies, and explicit multiplicity
+labels.  Exact full-graph DOT/GEXF files are still written for inspection in
+Graphviz or Gephi, but Graphviz `sfdp` rendering is disabled by default because
+it can run for a long time on graphs with thousands of vertices and does not
+produce a paper-style figure.  The notebook prints a proper straight-edge
+crossing count for the compressed schematic and for structural drawings that
+are generated.
 
+## Does This Run On GitHub?
+
+GitHub will render the notebook and display committed files, but a normal
+GitHub repository page does not execute SageMath notebooks automatically.  To
+run the code, clone the repository on a machine with SageMath installed and run
+the notebook or `scripts/run_parameters.py`.
+
+The generated files always go under:
+
+```text
+figures/G_r{r}_k{k}_h{h}/
+matrices/G_r{r}_k{k}_h{h}/
+```
+
+Those folders can then be committed if you want to publish the new outputs.
+They are ignored by default to keep large exploratory runs out of git; use
+`git add -f figures/G_r... matrices/G_r...` when you intentionally want to
+publish a new parameter run.
